@@ -1,0 +1,44 @@
+@charset "UTF-8";
+
+html {
+  font-size: 80%;
+}
+body {
+  color: #333;
+  font-size: 0.75rem;
+  font-family: sans-serif;
+}
+a {
+  color: #333;
+  text-decoration: none;
+}
+img {
+  max-width: 500%;
+}
+li {
+  list-style: none;
+}
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+.site-title {
+  width: 109px;
+  line-height: 1px;
+  margin: 0 auto 36px auto;
+}
+.site-title a {
+  display: block;
+}
+.wrapper {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+#item .item-info .order-table select {
+    width: 100%;
+    border: solid 1px #c3c3c3;
+    padding: 0 10px;
+    -moz-appearance: menulist;
+    -webkit-appearance: menulist;
+  }
