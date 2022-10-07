@@ -24,3 +24,13 @@ Route::controller(AccountController::class)->prefix('account')->group(function()
     Route::get('/edit', 'edit')->name('account.edit');
     Route::get('/edit/complete', 'edit_complete')->name('account.edit_complete');
 });
+
+Route::get('/', function () {
+    return view('welcome');
+});
+
+Route::get('/dashboard', function () {
+    return view('dashboard');
+})->middleware(['auth', 'verified'])->name('dashboard');
+
+require __DIR__.'/auth.php';
