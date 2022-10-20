@@ -13,9 +13,11 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('t_brand', function (Blueprint $table) {
-            $table->increments('id', true)->unsigned()->commnet('ID');
-            $table->string('brand_name', 100)->comment('ブランド名');
+        Schema::create('carts', function (Blueprint $table) {
+            $table->increments('id', true)->unsigned()->comment('ID');
+            $table->integer('user_id')->unsigned()->comment('ユーザーID');
+            $table->integer('item_id')->unsigned()->comment('アイテムID');
+            $table->integer('amount')->comment('数量');
             $table->timestamps();
         });
     }
@@ -27,6 +29,7 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('t_brand');
+        Schema::dropIfExists('carts');
     }
 };
+

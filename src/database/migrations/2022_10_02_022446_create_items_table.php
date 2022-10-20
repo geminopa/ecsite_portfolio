@@ -13,7 +13,7 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('t_item', function (Blueprint $table) {
+        Schema::create('items', function (Blueprint $table) {
             $table->increments('id', true)->unsigned()->comment('ID');
             $table->integer('brand_id')->comment('ブランドID');
             $table->integer('category_id')->comment('カテゴリID');
@@ -33,6 +33,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('t_item');
+        Schema::dropIfExists('items');
     }
 };

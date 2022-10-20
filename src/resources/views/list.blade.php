@@ -40,10 +40,10 @@
                     </ul>
                 </li>
             </ul>
-            <form class="d-flex">
-                <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                <button class="btn btn-outline-success" type="submit">Search</button>
-            </form>
+            <div>
+                <a class="btn btn-sm btn-primary" href="{{ route('account.edit') }}">購入者情報</a>
+                <a class="btn btn-sm btn-primary" href="{{ route('cart.list') }}">カート</a>
+            </div>
             </div>
         </div>
     </nav>

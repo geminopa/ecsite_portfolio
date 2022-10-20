@@ -13,11 +13,9 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('t_cart', function (Blueprint $table) {
+        Schema::create('categories', function (Blueprint $table) {
             $table->increments('id', true)->unsigned()->comment('ID');
-            $table->integer('user_id')->unsigned()->comment('ユーザーID');
-            $table->integer('item_id')->unsigned()->comment('アイテムID');
-            $table->integer('amount')->comment('数量');
+            $table->string('category_name', 100)->comment('カテゴリ名');
             $table->timestamps();
         });
     }
@@ -29,7 +27,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('t_cart');
+        Schema::dropIfExists('categories');
     }
 };
-

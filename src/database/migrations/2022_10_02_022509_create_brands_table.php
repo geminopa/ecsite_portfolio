@@ -13,12 +13,9 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('t_stock', function (Blueprint $table) {
-            $table->increments('id', true)->unsigned()->comment('ID');
-            $table->integer('item_id')->comment('アイテムID');
-            $table->integer('total_amount')->comment('総量');
-            $table->integer('sales_amount')->comment('販売数量');
-            $table->integer('stock')->comment('在庫');
+        Schema::create('brands', function (Blueprint $table) {
+            $table->increments('id', true)->unsigned()->commnet('ID');
+            $table->string('brand_name', 100)->comment('ブランド名');
             $table->timestamps();
         });
     }
@@ -30,6 +27,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('t_stock');
+        Schema::dropIfExists('brands');
     }
 };

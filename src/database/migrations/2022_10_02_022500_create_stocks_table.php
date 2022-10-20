@@ -13,9 +13,12 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('t_category', function (Blueprint $table) {
+        Schema::create('stocks', function (Blueprint $table) {
             $table->increments('id', true)->unsigned()->comment('ID');
-            $table->string('category_name', 100)->comment('カテゴリ名');
+            $table->integer('item_id')->comment('アイテムID');
+            $table->integer('total_amount')->comment('総量');
+            $table->integer('sales_amount')->comment('販売数量');
+            $table->integer('stock')->comment('在庫');
             $table->timestamps();
         });
     }
@@ -27,6 +30,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('t_category');
+        Schema::dropIfExists('stocks');
     }
 };

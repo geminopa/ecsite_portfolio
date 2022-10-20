@@ -2,13 +2,14 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProductController;
+use App\Http\Controllers\AccountController;
 
 Route::controller(LoginController::class)->prefix('login')->group(function() {
     Route::get('/', 'login')->name('login');
 });
 
 Route::controller(ProductController::class)->prefix('product')->group(function() {
-    Route::get('/list', 'list')->name('product.list');
+    Route::get('/list', 'list')->middleware(['auth', 'verified'])->name('product.list');
     Route::get('/detail', 'detail');
 });
 
@@ -18,19 +19,11 @@ Route::controller(CartController::class)->prefix('cart')->group(function() {
     Route::get('/complete', 'complete')->name('cart.complete');
 });
 
-Route::controller(AccountController::class)->prefix('account')->group(function() {
+Route::controller(AccountController::class)->middleware(['auth'])->prefix('account')->group(function() {
     Route::get('/signup', 'signup')->name('account.signup');
     Route::get('/signup/complete', 'signup_complete')->name('account.signup_complete');
     Route::get('/edit', 'edit')->name('account.edit');
-    Route::get('/edit/complete', 'edit_complete')->name('account.edit_complete');
+    Route::post('/edit/complete', 'editComplete')->name('account.edit_complete');
 });
-
-Route::get('/', function () {
-    return view('welcome');
-});
-
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
 
 require __DIR__.'/auth.php';
