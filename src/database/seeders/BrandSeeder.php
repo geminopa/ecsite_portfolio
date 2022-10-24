@@ -17,31 +17,31 @@ class BrandSeeder extends Seeder
     {
         Brand::create([
             'id' => 1,
-            'brand_name' => 'ブランドA',
+            'name' => 'ブランドA',
             'created_at' => '2022-10-20 00:00:00',
             'updated_at' => '2022-10-20 00:00:00',
         ]);
         Brand::create([
             'id' => 2,
-            'brand_name' => 'ブランドB',
+            'name' => 'ブランドB',
             'created_at' => '2022-10-20 00:00:00',
             'updated_at' => '2022-10-20 00:00:00',
         ]);
         Brand::create([
             'id' => 3,
-            'brand_name' => 'ブランドC',
+            'name' => 'ブランドC',
             'created_at' => '2022-10-20 00:00:00',
             'updated_at' => '2022-10-20 00:00:00',
         ]);
         Brand::create([
             'id' => 4,
-            'brand_name' => 'ブランドD',
+            'name' => 'ブランドD',
             'created_at' => '2022-10-20 00:00:00',
             'updated_at' => '2022-10-20 00:00:00',
         ]);
         Brand::create([
             'id' => 5,
-            'brand_name' => 'ブランドE',
+            'name' => 'ブランドE',
             'created_at' => '2022-10-20 00:00:00',
             'updated_at' => '2022-10-20 00:00:00',
         ]);

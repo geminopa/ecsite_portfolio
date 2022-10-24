@@ -15,7 +15,7 @@ return new class extends Migration
     {
         Schema::create('brands', function (Blueprint $table) {
             $table->increments('id', true)->unsigned()->commnet('ID');
-            $table->string('brand_name', 100)->comment('ブランド名');
+            $table->string('name', 100)->comment('ブランド名');
             $table->timestamps();
         });
     }

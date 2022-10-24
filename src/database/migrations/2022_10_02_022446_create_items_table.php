@@ -17,8 +17,8 @@ return new class extends Migration
             $table->increments('id', true)->unsigned()->comment('ID');
             $table->integer('brand_id')->comment('ブランドID');
             $table->integer('category_id')->comment('カテゴリID');
-            $table->string('item_name', 40)->comment('商品名');
-            $table->string('item_detail', 200)->comment('商品詳細');
+            $table->string('name', 40)->comment('商品名');
+            $table->string('description', 200)->comment('商品説明');
             $table->integer('price')->comment('金額');
             $table->string('image_1', 200)->comment('画像1');
             $table->timestamps();

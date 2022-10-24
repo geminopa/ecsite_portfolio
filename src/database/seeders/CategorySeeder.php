@@ -17,31 +17,31 @@ class CategorySeeder extends Seeder
     {
         Category::create([
             'id' => 1,
-            'category_name' => 'カテゴリA',
+            'name' => 'カテゴリA',
             'created_at' => '2022-10-20 00:00:00',
             'updated_at' => '2022-10-20 00:00:00',
         ]);
         Category::create([
             'id' => 2,
-            'category_name' => 'カテゴリB',
+            'name' => 'カテゴリB',
             'created_at' => '2022-10-20 00:00:00',
             'updated_at' => '2022-10-20 00:00:00',
         ]);
         Category::create([
             'id' => 3,
-            'category_name' => 'カテゴリC',
+            'name' => 'カテゴリC',
             'created_at' => '2022-10-20 00:00:00',
             'updated_at' => '2022-10-20 00:00:00',
         ]);
         Category::create([
             'id' => 4,
-            'category_name' => 'カテゴリD',
+            'name' => 'カテゴリD',
             'created_at' => '2022-10-20 00:00:00',
             'updated_at' => '2022-10-20 00:00:00',
         ]);
         Category::create([
             'id' => 5,
-            'category_name' => 'カテゴリE',
+            'name' => 'カテゴリE',
             'created_at' => '2022-10-20 00:00:00',
             'updated_at' => '2022-10-20 00:00:00',
         ]);

@@ -22,10 +22,9 @@
                         BLAND
                     </a>
                     <ul class="dropdown-menu" aria-labelledby="dropdownBland">
-                        <li><a class="dropdown-item" href="#">Bland A</a></li>
-                        <li><a class="dropdown-item" href="#">Bland B</a></li>
-                        <li><hr class="dropdown-divider"></li>
-                        <li><a class="dropdown-item" href="#">Something else here</a></li>
+                        @foreach ($brands as $brand)
+                        <li><a class="dropdown-item" href="#">{{ $brand->name }}</a></li>
+                        @endforeach
                     </ul>
                 </li>
                 <li class="nav-item dropdown">
@@ -33,10 +32,9 @@
                         CATEGORY
                     </a>
                     <ul class="dropdown-menu" aria-labelledby="dropdownCategory">
-                        <li><a class="dropdown-item" href="#">Category A</a></li>
-                        <li><a class="dropdown-item" href="#">Category B</a></li>
-                        <li><hr class="dropdown-divider"></li>
-                        <li><a class="dropdown-item" href="#">Something else here</a></li>
+                        @foreach ($categories as $category)
+                        <li><a class="dropdown-item" href="#">{{ $category->name }}</a></li>
+                        @endforeach
                     </ul>
                 </li>
             </ul>
@@ -54,46 +52,19 @@
     </div>
     <div class="container">
         <div class="row row-cols-1 row-cols-md-3 g-4">
+            @foreach ($allItems as $item)
             <div class="col">
                 <div class="card h-100">
                     <img src="{{ asset('/assets/images/fashion_onepiece.png') }}" alt="#">
                     <div class="card-body">
-                        <h5 class="card-title">Tシャツ</h5>
-                        <p class="card-text">¥10,000</p>
-                        <a href="#" class="btn btn-primary">カートに入れる</a>
+                        <h5 class="card-title">{{ $item->name }}</h5>
+                        <p class="card-text">¥{{ number_format($item->price) }}</p>
+                        <!-- <input type="hidden" name="item_id" value="{{ $item->id }}"> -->
+                        <a class="btn btn-primary" href="{{ route('product.detail', $item->id) }}">カートに入れる</a>
                     </div>
                 </div>
             </div>
-            <div class="col">
-                <div class="card h-100">
-                    <img src="{{ asset('/assets/images/fashion_onepiece.png') }}" alt="#">
-                    <div class="card-body">
-                        <h5 class="card-title">Tシャツ</h5>
-                        <p class="card-text">¥10,000</p>
-                        <a href="#" class="btn btn-primary">カートに入れる</a>
-                    </div>
-                </div>
-            </div>
-            <div class="col">
-                <div class="card h-100">
-                    <img src="{{ asset('/assets/images/fashion_onepiece.png') }}" alt="#">
-                    <div class="card-body">
-                        <h5 class="card-title">Tシャツ</h5>
-                        <p class="card-text">¥10,000</p>
-                        <a href="#" class="btn btn-primary">カートに入れる</a>
-                    </div>
-                </div>
-            </div>
-            <div class="col mb-5">
-                <div class="card h-100">
-                    <img src="{{ asset('/assets/images/fashion_onepiece.png') }}" alt="#">
-                    <div class="card-body">
-                        <h5 class="card-title">Tシャツ</h5>
-                        <p class="card-text">¥10,000</p>
-                        <a href="#" class="btn btn-primary">カートに入れる</a>
-                    </div>
-                </div>
-            </div>
+            @endforeach
         </div>
     </div>
 </body>

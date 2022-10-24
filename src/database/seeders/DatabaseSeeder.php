@@ -8,6 +8,7 @@ use Database\Seeders\BrandSeeder;
 use Database\Seeders\CategorySeeder;
 use Database\Seeders\ItemSeeder;
 use Database\Seeders\UserSeeder;
+use Database\Seeders\ItemDetailSeeder;
 
 class DatabaseSeeder extends Seeder
 {
@@ -22,6 +23,7 @@ class DatabaseSeeder extends Seeder
             BrandSeeder::class,
             CategorySeeder::class,
             ItemSeeder::class,
+            ItemDetailSeeder::class,
             UserSeeder::class,
         ]);
     }

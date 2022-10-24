@@ -3,18 +3,20 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\AccountController;
+use App\Http\Controllers\CartController;
 
 Route::controller(LoginController::class)->prefix('login')->group(function() {
     Route::get('/', 'login')->name('login');
 });
 
-Route::controller(ProductController::class)->prefix('product')->group(function() {
-    Route::get('/list', 'list')->middleware(['auth', 'verified'])->name('product.list');
-    Route::get('/detail', 'detail');
+Route::controller(ProductController::class)->middleware(['auth'])->prefix('product')->group(function() {
+    Route::get('/list', 'list')->name('product.list');
+    Route::get('/detail/{id}', 'detail')->name('product.detail');
 });
 
-Route::controller(CartController::class)->prefix('cart')->group(function() {
+Route::controller(CartController::class)->middleware(['auth'])->prefix('cart')->group(function() {
     Route::get('/list', 'list')->name('cart.list');
+    Route::post('/cartIn', 'cartIn')->name('cart.cartIn');
     Route::get('/delivery_address', 'delivery_address')->name('cart.delivery_address');
     Route::get('/complete', 'complete')->name('cart.complete');
 });
