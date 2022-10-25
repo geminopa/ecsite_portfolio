@@ -1,13 +1,13 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="{{ asset('/css/detail.css') }}">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Document</title>
+<link rel="stylesheet" href="{{ asset('/css/detail.css') }}">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 </head>
 <body>
     <header>
@@ -52,37 +52,45 @@
     </header>
 
     <main>
-      <div id="item" class="wrapper">
-        <div class="item-image">
-          <img src="{{ asset('/images/fashion_onepiece.png') }}" alt="">
-        </div>
+        @foreach ($cartList as $cartItem)
+        <div id="item" class="wrapper">
+            <div class="item-image">
+            <img src="{{ asset('/images/fashion_onepiece.png') }}" alt="">
+            </div>
 
-        <div class="item-info">
-          <h1 class="item-title">TOTALLY Short Sleeve Shirt</h1>
-          <p>￥9,999 +tax</p>
+            <div class="item-info">
+            <h1 class="item-title">{{ $cartItem->itemDetail->item->name }}</h1>
+            <p>￥{{ number_format($cartItem->itemDetail->item->price) }}</p>
 
-          <select name="" id="">
-            <option value="1">1</option>
-            <option value="2">2</option>
-            <option value="3">3</option>
-          </select>
+            <form method="POST" action="{{ route('cart.recalculation') }}">
+                @csrf
+                <input type="hidden" name="cart_id" value="{{ $cartItem->id }}">
+                <select name="quantity" id="">
+                    <!-- TODO:商品の数量をみてセレクトボックスの値を出したい -->
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                </select>
+                <button class="btn btn-primary submit">変更する</button>
+            </form>
 
-          <a class="btn btn-danger" href="#">削除</a>
+            <a class="btn btn-danger" href="#">削除</a>
+            </div>
         </div>
-      </div>
-      <div id="item" class="wrapper">
-        <div class="item-info">
-          <h1>商品合計</h1>
-          <h5>￥9,999</h5>
-          <a class="btn btn-primary mb-3" href="#">購入する</a>
-          <br>
-          <a class="btn btn-primary" href="#">ショッピングを続ける</a>
+        @endforeach
+        <div id="item" class="wrapper">
+            <div class="item-info">
+            <h1>商品合計</h1>
+            <h5>￥9,999</h5>
+            <a class="btn btn-primary mb-3" href="#">購入する</a>
+            <br>
+            <a class="btn btn-primary" href="#">ショッピングを続ける</a>
+            </div>
         </div>
-      </div>
     </main>
 
     <footer id="footer" class="wrapper">
-      <p class="copyright">© TOTALLY</p>
+        <p class="copyright">© TOTALLY</p>
     </footer>
 
     <!-- <div class="container my-5">
@@ -102,7 +110,7 @@
             </div>
         </div>
     </div>
-</div> -->
+    </div> -->
 
 
 </body>

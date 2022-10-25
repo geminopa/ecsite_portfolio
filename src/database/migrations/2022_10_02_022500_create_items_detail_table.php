@@ -20,8 +20,8 @@ return new class extends Migration
             $table->integer('item_id')->comment('アイテムID');
             $table->string('color', 20)->comment('カラー');
             $table->string('size', 5)->comment('サイズ');
-            $table->integer('total_amount')->comment('総量');
-            $table->integer('sales_amount')->comment('販売数量');
+            $table->integer('total_quantity')->comment('総量');
+            $table->integer('sales_quantity')->comment('販売数量');
             $table->integer('stock')->comment('在庫');
             $table->timestamps();
         });
