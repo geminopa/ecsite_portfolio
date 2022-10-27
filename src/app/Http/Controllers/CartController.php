@@ -42,6 +42,17 @@ class CartController extends Controller
 
     public function recalculation(Request $request)
     {
-        dd('test');
+        $recalculationCart = Cart::where('id', $request->cart_id)->first();
+        $recalculationCart->quantity = $request->quantity;
+        $recalculationCart->save();
+        return redirect()->route('cart.list');
+        // TODO:編集後、カート一覧画面に「（商品名）を編集しました。」と表示する
+    }
+
+    public function deleteCart(Request $request)
+    {
+        Cart::where('id', $request->cart_id)->delete();
+        return redirect()->route('cart.list');
+        // TODO:削除後、カート一覧画面に「（商品名）を削除しました。」と表示する
     }
 }

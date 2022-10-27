@@ -18,6 +18,7 @@ Route::controller(CartController::class)->middleware(['auth'])->prefix('cart')->
     Route::get('/list', 'list')->name('cart.list');
     Route::post('/cartIn', 'cartIn')->name('cart.cartIn');
     Route::post('/recalculation', 'recalculation')->name('cart.recalculation');
+    Route::post('/deleteCart', 'deleteCart')->name('cart.deleteCart');
     Route::get('/delivery_address', 'delivery_address')->name('cart.delivery_address');
     Route::get('/complete', 'complete')->name('cart.complete');
 });

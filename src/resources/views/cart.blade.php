@@ -74,7 +74,11 @@
                 <button class="btn btn-primary submit">変更する</button>
             </form>
 
-            <a class="btn btn-danger" href="#">削除</a>
+            <form action="{{ route('cart.deleteCart') }}" method="POST">
+                @csrf
+                <input type="hidden" name="cart_id" value="{{ $cartItem->id }}">
+                <button class="btn btn-danger submit">削除</button>
+            </form>
             </div>
         </div>
         @endforeach
