@@ -20,7 +20,8 @@ Route::controller(CartController::class)->middleware(['auth'])->prefix('cart')->
     Route::post('/recalculation', 'recalculation')->name('cart.recalculation');
     Route::post('/deleteCart', 'deleteCart')->name('cart.deleteCart');
     Route::get('/delivery_address', 'delivery_address')->name('cart.delivery_address');
-    Route::get('/complete', 'complete')->name('cart.complete');
+    Route::post('/execPurchase', 'execPurchase')->name('cart.execPurchase');
+    Route::get('/showComplete', 'showComplete')->name('cart.showComplete');
 });
 
 Route::controller(AccountController::class)->middleware(['auth'])->prefix('account')->group(function() {

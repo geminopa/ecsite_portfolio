@@ -83,39 +83,22 @@
         </div>
         @endforeach
         <div id="item" class="wrapper">
-            <div class="item-info">
-            <h1>商品合計</h1>
-            <h5>￥9,999</h5>
-            <a class="btn btn-primary mb-3" href="#">購入する</a>
-            <br>
-            <a class="btn btn-primary" href="#">ショッピングを続ける</a>
-            </div>
+            <form method="POST" action="{{ route('cart.execPurchase') }}">
+                @csrf
+                <div class="item-info">
+                    <h1>商品合計</h1>
+                    <h5>￥{{ number_format($total) }}</h5>
+                    <button class="btn btn-primary mb-3 submit">購入する</butt>
+                    <br>
+                </div>
+            </form>
+            <a class="btn btn-primary" href="{{ route('product.list') }}">ショッピングを続ける</a>
         </div>
     </main>
 
     <footer id="footer" class="wrapper">
         <p class="copyright">© TOTALLY</p>
     </footer>
-
-    <!-- <div class="container my-5">
-        <div class="row">
-            <div class="col-5">
-                <div class="card" style="height: 200px;">
-                    <img src="{{ asset('/assets/images/fashion_onepiece.png') }}" alt="">
-                </div>
-            </div>
-            <div class="col-1"></div>
-            <div class="col-6">
-                <div class="card" style="height: 200px;">
-                    <p>ブランド名</p>
-                    <h5>商品名</h5>
-                    <p>¥20,000</p>
-                </div>
-            </div>
-        </div>
-    </div>
-    </div> -->
-
 
 </body>
 </html>
