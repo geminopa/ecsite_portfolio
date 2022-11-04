@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use App\Models\Category;
 use App\Models\ItemDetail;
 
 class Item extends Model
@@ -12,5 +13,10 @@ class Item extends Model
     public function itemsDetail()
     {
         return $this->hasMany(ItemDetail::class);
+    }
+
+    public function category()
+    {
+        return $this->belongsTo(Category::class);
     }
 }

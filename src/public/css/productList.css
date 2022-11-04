@@ -1,0 +1,18 @@
+@charset "UTF-8";
+
+a {
+    text-decoration: none;
+    color: #000;
+}
+
+.product-img {
+    /* border: 1px solid #ccc; */
+    display: block;
+    height: 300px;
+    object-fit: cover;
+    width: 100%;
+}
+
+.c-body {
+    background-color: #FFFAFA;
+}

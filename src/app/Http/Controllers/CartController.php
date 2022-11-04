@@ -24,6 +24,8 @@ class CartController extends Controller
 
     public function cartIn(Request $request)
     {
+        $req = $request;
+        dd($req);
         $arrReq = $request->cartInfo;
         foreach ($arrReq as $req) {
             $val = [];

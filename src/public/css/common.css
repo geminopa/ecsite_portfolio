@@ -1,0 +1,23 @@
+@charset "UTF-8";
+
+html {
+    font-size: 80%;
+}
+/* body {
+    color: #333;
+    font-size: 0.75rem;
+    font-family: sans-serif;
+} */
+
+body {
+    font-weight: 400;
+    font-size: 0.75rem;
+    font-family: sans-serif;
+    line-height: 1.8em;
+    overflow-x: hidden;
+    color: #000;
+}
+
+.bg {
+    background-color: #FFFAFA;
+}

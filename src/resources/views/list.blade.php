@@ -1,43 +1,32 @@
 @extends('layouts.common')
 
-@section('main')
-<div id="item" class="wrapper">
-    <div class="item-image">
-        <img src="{{ asset('/images/fashion_onepiece.png') }}" alt="">
-    </div>
-    <form method="POST" action="{{ route('cart.cartIn') }}">
-        @csrf
-        <div class="item-info">
-        <h1 class="item-title">{{ $item->name }}</h1>
-        <p>¥{{ number_format($item->price) }}</p>
+@section('css')
+<link rel="stylesheet" href="{{ asset('/css/productList.css') }}">
+@endsection
 
-        <table class="order-table">
-            <thead>
-            <tr>
-                <th class="color">Color</th>
-                <th class="size">Size</th>
-                <th class="quantity"></th>
-            </tr>
-            </thead>
-            <tbody>
-            @foreach ($item->itemsDetail as $itemDetail)
-            <tr>
-                <td>{{ $itemDetail->color }}</td>
-                <td>{{ $itemDetail->size }}</td>
-                <td>
-                <select name="cartInfo[]">
-                    <option value=""></option>
-                    <option value="{{ $itemDetail->id }}&1">1</option>
-                    <option value="{{ $itemDetail->id }}&2">2</option>
-                    <option value="{{ $itemDetail->id }}&3">3</option>
-                </select>
-                </td>
-            </tr>
-            @endforeach
-            </tbody>
-        </table>
-        <button class="btn btn-primary submit">ADD TO CART</button>
-        </div>
-    </form>
+@section('main')
+<div class="container">
+    <h3 class="pt-5 mb-5">Bland A</h3>
 </div>
+<div class="container">
+    <div class="row">
+        @foreach ($allItems as $item)
+        <div class="col-lg-3 mb-5">
+            <div class="card border-light" style="width: 18rem;">
+                <a href="{{ route('product.detail', $item->id) }}">
+                    <img class="product-img" src="{{ asset($item->image_1) }}" alt="#">
+                </a>
+                <div class="card-body c-body">
+                    <a href="{{ route('product.detail', $item->id) }}">
+                        <p class="card-title">{{ $item->name }}</p>
+                    </a>
+                    <p class="card-text">¥{{ number_format($item->price) }}</p>
+                </div>
+            </div>
+        </div>
+        @endforeach
+    </div>
+</div>
+
+
 @endsection
