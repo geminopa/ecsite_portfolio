@@ -24,24 +24,16 @@ class CartController extends Controller
 
     public function cartIn(Request $request)
     {
-        $req = $request;
-        dd($req);
-        $arrReq = $request->cartInfo;
-        foreach ($arrReq as $req) {
-            $val = [];
-            if ($req !== null) {
-                $val = explode('&', $req);
-                $cart = Cart::where('user_id', Auth::user()->id)->where('items_detail_id', $val[0])->firstOrNew();
-                if ($cart->exists) {
-                    $cart->quantity += $val[1];
-                    $cart->update();
-                } else {
-                    $cart->user_id = Auth::user()->id;
-                    $cart->items_detail_id = $val[0];
-                    $cart->quantity = $val[1];
-                    $cart->save();
-                }
-            }
+        $itemDetailId = $request->itemDetailId;
+        $cart = Cart::where('user_id', Auth::user()->id)->where('items_detail_id', $itemDetailId)->firstOrNew();
+        if ($cart->exists) {
+            $cart->quantity += 1;
+            $cart->update();
+        } else {
+            $cart->user_id = Auth::user()->id;
+            $cart->items_detail_id = $itemDetailId;
+            $cart->quantity = 1;    //TODO:マジックナンバー控える
+            $cart->save();
         }
         return redirect()->route('cart.list');
     }
