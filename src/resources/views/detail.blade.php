@@ -9,7 +9,7 @@
     <div class="card border-light mb-3 mx-auto" style="max-width: 540px;">
         <div class="row g-0">
             <div class="col-md-6 pr-3 bg">
-                <img class="product-img" src="{{ asset('/images/fashion_onepiece.png') }}" alt="...">
+                <img class="product-img" src="{{ asset($item->image_1) }}" alt="...">
             </div>
             <div class="col-md-1 c-body"></div>
             <div class="col-md-5 c-body">

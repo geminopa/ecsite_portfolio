@@ -1,19 +1,11 @@
 @charset "UTF-8";
 
-html {
-  font-size: 80%;
-}
-body {
-  color: #333;
-  font-size: 0.75rem;
-  font-family: sans-serif;
-}
 a {
   color: #333;
   text-decoration: none;
 }
 img {
-  max-width: 500%;
+  max-width: 100%;
 }
 li {
   list-style: none;
@@ -21,6 +13,11 @@ li {
 table {
   border-collapse: collapse;
   border-spacing: 0;
+}
+
+td {
+  text-align: center;
+  vertical-align: middle;
 }
 .site-title {
   width: 109px;
@@ -35,10 +32,14 @@ table {
   margin: 0 auto;
 }
 
-#item .item-info .order-table select {
-    width: 100%;
-    border: solid 1px #c3c3c3;
-    padding: 0 10px;
-    -moz-appearance: menulist;
-    -webkit-appearance: menulist;
-  }
+.product-img {
+  /* border: 1px solid #ccc; */
+  display: block;
+  height: auto;
+  object-fit: cover;
+  width: 100%;
+}
+
+.c-body {
+  background-color: #FFFAFA;
+}
