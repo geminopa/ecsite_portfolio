@@ -14,24 +14,12 @@ table {
   border-collapse: collapse;
   border-spacing: 0;
 }
-.site-title {
-  width: 109px;
-  line-height: 1px;
-  margin: 0 auto 36px auto;
-}
-.site-title a {
-  display: block;
-}
-.wrapper {
-  max-width: 800px;
-  margin: 0 auto;
-}
 
 .product-img {
   /* border: 1px solid #ccc; */
   display: block;
-  height: auto;
-  object-fit: cover;
+  height: 200px;
+  object-fit: scale-down;
   width: 100%;
 }
 

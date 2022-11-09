@@ -35,11 +35,15 @@ td {
 .product-img {
   /* border: 1px solid #ccc; */
   display: block;
-  height: auto;
-  object-fit: cover;
+  height: 200px;
+  object-fit: scale-down;
   width: 100%;
 }
 
 .c-body {
   background-color: #FFFAFA;
+}
+
+.purchase-area {
+  background-color: whitesmoke;
 }

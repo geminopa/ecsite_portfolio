@@ -8,8 +8,8 @@ a {
 .product-img {
     /* border: 1px solid #ccc; */
     display: block;
-    height: 300px;
-    object-fit: cover;
+    height: 200px;
+    object-fit: scale-down;
     width: 100%;
 }
 
