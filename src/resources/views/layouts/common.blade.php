@@ -15,7 +15,9 @@
     <header>
         <nav class="navbar navbar-expand-lg navbar-light bg-light mb-0">
             <div class="container-fluid">
-                <a class="navbar-brand" href="#">Navbar</a>
+                <div class="shop-title">
+                    <a class="navbar-brand" href="{{ route('product.list') }}">げんしのお店</a>
+                </div>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
                 </button>
@@ -43,11 +45,17 @@
                             <li><a class="dropdown-item" href="#">Something else here</a></li>
                         </ul>
                     </li>
+                    <form class="d-flex">
+                        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                        <button class="btn btn-outline-success" type="submit">Search</button>
+                    </form>
                 </ul>
-                <form class="d-flex">
-                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                    <button class="btn btn-outline-success" type="submit">Search</button>
-                </form>
+                <div class="people-icon-area">
+                    <a href="{{ route('account.edit') }}"><img class="icon" src="{{ asset('images/people_icon.png') }}" alt="#"></a>
+                </div>
+                <div class="shopping-cart-icon-area">
+                    <a href="{{  route('cart.list')}}"><img class="icon" src="{{ asset('images/shopping_cart_icon.png') }}" alt="#"></a>
+                </div>
                 </div>
             </div>
         </nav>

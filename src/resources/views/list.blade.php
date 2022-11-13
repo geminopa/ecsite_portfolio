@@ -6,7 +6,7 @@
 
 @section('main')
 <div class="container">
-    <h3 class="pt-5 mb-5">Bland A</h3>
+    <h3 class="pt-5 mb-5">商品一覧</h3>
 </div>
 <div class="container">
     <div class="row">

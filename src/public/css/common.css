@@ -21,3 +21,22 @@ body {
 .bg {
     background-color: #FFFAFA;
 }
+
+.shop-title {
+    margin-right: 30px;
+}
+
+.icon {
+    display: block;
+    height: 20px;
+    object-fit: scale-down;
+    width: 20px;
+}
+
+.people-icon-area {
+    margin-right: 30px;
+}
+
+.shopping-cart-icon-area {
+    margin-right: 40px;
+}
