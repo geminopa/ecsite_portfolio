@@ -19,43 +19,39 @@
                     <a class="navbar-brand" href="{{ route('product.list') }}">げんしのお店</a>
                 </div>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
+                    <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="dropdownBland" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                            BLAND
-                        </a>
-                        <ul class="dropdown-menu" aria-labelledby="dropdownBland">
-                            <li><a class="dropdown-item" href="#">Bland A</a></li>
-                            <li><a class="dropdown-item" href="#">Bland B</a></li>
-                            <li><hr class="dropdown-divider"></li>
-                            <li><a class="dropdown-item" href="#">Something else here</a></li>
-                        </ul>
-                    </li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="dropdownCategory" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                            CATEGORY
-                        </a>
-                        <ul class="dropdown-menu" aria-labelledby="dropdownCategory">
-                            <li><a class="dropdown-item" href="#">Category A</a></li>
-                            <li><a class="dropdown-item" href="#">Category B</a></li>
-                            <li><hr class="dropdown-divider"></li>
-                            <li><a class="dropdown-item" href="#">Something else here</a></li>
-                        </ul>
-                    </li>
-                    <form class="d-flex">
-                        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                        <button class="btn btn-outline-success" type="submit">Search</button>
-                    </form>
-                </ul>
-                <div class="people-icon-area">
-                    <a href="{{ route('account.edit') }}"><img class="icon" src="{{ asset('images/people_icon.png') }}" alt="#"></a>
-                </div>
-                <div class="shopping-cart-icon-area">
-                    <a href="{{  route('cart.list')}}"><img class="icon" src="{{ asset('images/shopping_cart_icon.png') }}" alt="#"></a>
-                </div>
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                        <form action="{{ route('product.search') }}" method="POST" class="d-flex justify-content-start">
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="#" id="dropdownBland" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                    BLAND
+                                </a>
+                                <ul class="dropdown-menu" aria-labelledby="dropdownBland">
+                                    <li><a class="dropdown-item" href="#">Bland A</a></li>
+                                    <li><a class="dropdown-item" href="#">Bland B</a></li>
+                                </ul>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="#" id="dropdownCategory" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                    CATEGORY
+                                </a>
+                                <ul class="dropdown-menu" aria-labelledby="dropdownCategory">
+                                    <li><a class="dropdown-item" href="#">Category A</a></li>
+                                    <li><a class="dropdown-item" href="#">Category B</a></li>
+                                </ul>
+                            </li>
+                            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                            <button class="btn btn-outline-success" type="submit">Search</button>
+                        </form>
+                    </ul>
+                    <div class="people-icon-area d-flex justify-content-end">
+                        <a href="{{ route('account.edit') }}"><img class="icon" src="{{ asset('images/people_icon.png') }}" alt="#"></a>
+                    </div>
+                    <div class="shopping-cart-icon-area">
+                        <a href="{{  route('cart.list')}}"><img class="icon" src="{{ asset('images/shopping_cart_icon.png') }}" alt="#"></a>
+                    </div>
                 </div>
             </div>
         </nav>

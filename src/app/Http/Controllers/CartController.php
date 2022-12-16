@@ -40,6 +40,10 @@ class CartController extends Controller
 
     public function recalculation(Request $request)
     {
+        $itemDetail = ItemDetail::where('id', $request->itemDetailId)->first();
+        if ($request->quantity > $itemDetail->stock) {
+            return redirect()->route('cart.list')->with('error', '在庫が不足しています。');
+        }
         $recalculationCart = Cart::where('id', $request->cartId)->first();
         $recalculationCart->quantity = $request->quantity;
         $recalculationCart->save();

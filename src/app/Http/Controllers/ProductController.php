@@ -14,6 +14,7 @@ class ProductController extends Controller
         $allBrands = Brand::all();
         $allCategories = Category::all();
         $allItems = Item::all();
+
         return view('list', [
             'brands' => $allBrands,
             'categories' => $allCategories,

@@ -46,6 +46,7 @@
                                             </select>
                                         </td>
                                         <input type="hidden" name="cartId" value="{{ $cartItem->id }}">
+                                        <input type="hidden" name="itemDetailId" value="{{ $cartItem->items_detail_id }}">
                                         <td>
                                             <button class="btn btn-sm btn-outline-success submit" formaction="{{ route('cart.recalculation') }}">UPDATE</button>
                                         </td>
