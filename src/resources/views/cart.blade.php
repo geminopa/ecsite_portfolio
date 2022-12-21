@@ -40,7 +40,7 @@
                                         <td>{{ $cartItem->itemDetail->size }}</td>
                                         <td>
                                             <select name="quantity">
-                                                @for($i = 1; $i <= 3; $i++)
+                                                @for($i = 1; $i <= $cartItem->itemDetail->stock; $i++)
                                                 <option value="{{ $i }}" @if($i === $cartItem->quantity) selected @endif>{{ $i }}</option>
                                                 @endfor
                                             </select>
