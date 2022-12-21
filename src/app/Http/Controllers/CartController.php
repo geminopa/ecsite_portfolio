@@ -62,6 +62,9 @@ class CartController extends Controller
         $carts = cart::where('user_id', Auth::user()->id)->get();
         // order_historyテーブル登録
         foreach ($carts as $cart) {
+            if ($cart->quantity > $cart->itemDetail->stock) {
+                return redirect()->route('cart.list')->with('error', '在庫が不足しています。');
+            }
             $orderHistory = new OrderHistory;
             $orderHistory->user_id = $cart->user_id;
             $orderHistory->item_id = $cart->itemDetail->item_id;
@@ -69,7 +72,6 @@ class CartController extends Controller
             $orderHistory->quantity = $cart->quantity;
             $orderHistory->save();
             // items_detailテーブルの在庫数を変更
-            // TODO:在庫を上回る数量がこないよう制御
             $itemDetail = ItemDetail::where('id', $cart->items_detail_id)->first();
             $itemDetail->sales_quantity += $cart->quantity;
             $itemDetail->stock -= $cart->quantity;
