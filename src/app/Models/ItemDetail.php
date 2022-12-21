@@ -18,6 +18,6 @@ class ItemDetail extends Model
 
     public function cart()
     {
-        return $this->hasOne(Cart::class, 'items_detail_id', 'id');
+        return $this->hasOne(Cart::class, 'id', 'items_detail_id');
     }
 }
