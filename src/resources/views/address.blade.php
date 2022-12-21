@@ -16,13 +16,13 @@
         <div class="row mb-4">
             <label for="email" class="col-2 offset-2 col-form-label">Eメールアドレス</label>
             <div class="col-6">
-                <input type="email" class="form-control" id="email" name="email">
+                <input type="email" class="form-control" id="email" name="email" value="{{ $user->email }}">
             </div>
         </div>
         <div class="row mb-4">
             <label for="post_code" class="col-2 offset-2 col-form-label">郵便番号</label>
             <div class="col-3">
-                <input type="text" class="form-control" id="post_code" name="post_code">
+                <input type="text" class="form-control" id="post_code" name="post_code" value="{{ $user->post_code }}">
             </div>
             <div class="col-2">
                 <a class="btn btn-outline-secondary d-flex justify-content-center" href="">住所検索</a>
@@ -31,25 +31,25 @@
         <div class="row mb-4">
             <label for="prefecture" class="col-2 offset-2 col-form-label">都道府県</label>
             <div class="col-6">
-                <input type="text" class="form-control" id="prefecture" name="prefecture">
+                <input type="text" class="form-control" id="prefecture" name="prefecture" value="{{ $user->prefecture }}">
             </div>
         </div>
         <div class="row mb-4">
             <label for="city" class="col-2 offset-2 col-form-label">市区町村</label>
             <div class="col-6">
-                <input type="text" class="form-control" id="city" name="city">
+                <input type="text" class="form-control" id="city" name="city" value="{{ $user->city }}">
             </div>
         </div>
         <div class="row mb-4">
             <label for="address" class="col-2 offset-2 col-form-label">それ以降の住所</label>
             <div class="col-6">
-                <input type="text" class="form-control" id="address" name="address">
+                <input type="text" class="form-control" id="address" name="address" value="{{ $user->address }}">
             </div>
         </div>
         <div class="row mb-5">
             <label for="tel" class="col-2 offset-2 col-form-label">電話番号</label>
             <div class="col-6">
-                <input type="text" class="form-control" id="tel" name="tel">
+                <input type="text" class="form-control" id="tel" name="tel" value="{{ $user->tel }}">
             </div>
         </div>
         <div class="row mb-5">
