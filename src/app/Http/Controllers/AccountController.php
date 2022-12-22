@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
+use App\Services\AccountService;
 
 class AccountController extends Controller
 {
@@ -18,8 +19,10 @@ class AccountController extends Controller
 
     public function editComplete(Request $request)
     {
-
-        // TODO:バリデーション
+        $validator = AccountService::validate($request);
+        if ($validator->fails()) {
+            return redirect()->back()->withInput()->withErrors($validator);
+        }
         $user = User::find(Auth::user()->id);
         $user->name = $request->name;
         $user->email = $request->email;
@@ -30,5 +33,6 @@ class AccountController extends Controller
         $user->tel = $request->tel;
 
         $user->save();
+        return redirect()->back()->with('message', 'お客様情報を更新しました');
     }
 }
