@@ -3,6 +3,9 @@
 namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
+use Illuminate\Support\Facades\View;
+use App\Models\Category;
+use App\Models\Brand;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -23,6 +26,13 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        //
+        //compose all the views....
+        View::composer('*', function ($view) {
+            //...with this variable
+            $view->with([
+                'allCategories' => Category::all(),
+                'allBrands' => Brand::all(),
+            ]);
+        });
     }
 }
