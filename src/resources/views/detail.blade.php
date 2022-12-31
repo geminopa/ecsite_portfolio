@@ -36,7 +36,11 @@
                                     <td>{{ $itemDetail->size }}</td>
                                     <input type="hidden" name="itemDetailId" value="{{ $itemDetail->id }}">
                                     <td>
+                                        @if ($itemDetail->stock === 0)
+                                        <button class="btn btn-sm btn-outline-secondary disabled">SOLD OUT</button>
+                                        @else
                                         <button class="btn btn-sm btn-outline-secondary submit">BUY</button>
+                                        @endif
                                     </td>
                                 </tr>
                             </form>
