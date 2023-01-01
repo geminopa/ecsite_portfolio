@@ -9,7 +9,7 @@ Route::controller(LoginController::class)->prefix('login')->group(function() {
     Route::get('/', 'login')->name('login');
 });
 
-Route::controller(ProductController::class)->middleware(['auth'])->prefix('product')->group(function() {
+Route::controller(ProductController::class)->prefix('product')->group(function() {
     Route::get('/list', 'list')->name('product.list');
     Route::post('/list/search', 'search')->name('product.search');
     Route::get('/detail/{id}', 'detail')->name('product.detail');
