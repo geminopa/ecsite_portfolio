@@ -24,9 +24,10 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                         <form action="{{ route('product.search') }}" method="POST" class="d-flex justify-content-start">
-                            <li class="nav-item dropdown">
+                            @csrf
+                            <!-- <li class="nav-item dropdown">
                                 <a class="nav-link dropdown-toggle" href="#" id="dropdownBland" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                    BLAND
+                                    BRAND
                                 </a>
                                 <ul class="dropdown-menu" aria-labelledby="dropdownBland">
                                     <li><a class="dropdown-item" href="#">Bland A</a></li>
@@ -41,12 +42,24 @@
                                     <li><a class="dropdown-item" href="#">Category A</a></li>
                                     <li><a class="dropdown-item" href="#">Category B</a></li>
                                 </ul>
-                            </li>
-                            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                            </li> -->
+                            <input class="form-control me-2" type="text" name="keyword" placeholder="アイテム名" aria-label="Search">
                             <button class="btn btn-outline-success" type="submit">Search</button>
                         </form>
                     </ul>
-                    <div class="people-icon-area d-flex justify-content-end">
+                    @if (Auth::check())
+                    <form action="{{ route('logout') }}" method="POST" class="d-flex justify-content-start" name="logout">
+                    @csrf
+                        <div class="logout-icon-area d-flex justify-content-end">
+                            <a href="javascript: logout.submit()"><img class="icon" src="{{ asset('images/logout_icon.png') }}" alt="#"></a>
+                        </div>
+                    </form>
+                    @else
+                    <div class="login-icon-area d-flex justify-content-end">
+                        <a href="{{ route('login') }}"><img class="icon" src="{{ asset('images/login_icon.png') }}" alt="#"></a>
+                    </div>
+                    @endif
+                    <div class="people-icon-area">
                         <a href="{{ route('account.edit') }}"><img class="icon" src="{{ asset('images/people_icon.png') }}" alt="#"></a>
                     </div>
                     <div class="shopping-cart-icon-area">

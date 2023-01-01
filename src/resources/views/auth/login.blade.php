@@ -1,7 +1,7 @@
 <x-guest-layout>
     <x-auth-card>
         <x-slot name="logo">
-            <a href="/">
+            <a href="/product/list">
                 <x-application-logo class="w-20 h-20 fill-current text-gray-500" />
             </a>
         </x-slot>
@@ -48,6 +48,9 @@
                     </a>
                 @endif
 
+                @if (Route::has('register'))
+                    <a href="{{ route('register') }}" class="ml-4 underline text-sm text-gray-600 hover:text-gray-900">サインアップ</a>
+                @endif
                 <x-primary-button class="ml-3">
                     {{ __('Log in') }}
                 </x-primary-button>
