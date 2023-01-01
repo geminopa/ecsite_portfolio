@@ -6,20 +6,23 @@ use Illuminate\Http\Request;
 use App\Models\Brand;
 use App\Models\Category;
 use App\Models\Item;
+use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Facades\DB;
 
 class ProductController extends Controller
 {
-    public function list()
+    public function list(Request $request)
     {
-        $allBrands = Brand::all();
-        $allCategories = Category::all();
-        $allItems = Item::all();
+        try {
+            $items = Item::all();
 
-        return view('list', [
-            'brands' => $allBrands,
-            'categories' => $allCategories,
-            'allItems' => $allItems,
-        ]);
+            return view('list', [
+                'items' => $items,
+            ]);
+        } catch (\Exception $e) {
+            Log::error($e);
+            throw $e;
+        }
     }
 
     public function detail(Request $request)
@@ -30,18 +33,8 @@ class ProductController extends Controller
         ]);
     }
 
-    public function cart()
+    public function search(Request $request)
     {
-        return view('cart');
-    }
-
-    public function address()
-    {
-        return view('address');
-    }
-
-    public function complete()
-    {
-        return view('complete');
+        // dd($request);
     }
 }

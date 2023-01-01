@@ -10,7 +10,7 @@
 </div>
 <div class="container">
     <div class="row">
-        @foreach ($allItems as $item)
+        @foreach ($items as $item)
         <div class="col-lg-3 mb-5 d-flex justify-content-center">
             <div class="card border-light" style="width: 18rem;">
                 <a href="{{ route('product.detail', $item->id) }}">
